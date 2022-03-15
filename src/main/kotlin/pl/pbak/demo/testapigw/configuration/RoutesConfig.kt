@@ -16,15 +16,15 @@ class RoutesConfig {
         return builder.routes()
                 .route { p: PredicateSpec ->
                     p
-                            .path("/api/uuid")
+                            .path("/v1/test/uuid")
                             .filters { f: GatewayFilterSpec -> f.addRequestHeader("custom-header", "test-value") }
-                            .uri("http://test-app:8080/v1/test/uuid")
+                            .uri("http://test-app:8080")
                 }
                 .route { p: PredicateSpec ->
                     p
-                            .path("/api/uuid-error")
+                            .path("/v1/test/uuid-error")
                             .filters { f: GatewayFilterSpec -> f.addRequestHeader("custom-header", "test-value") }
-                            .uri("http://test-app:8080/v1/test/uuid-error")
+                            .uri("http://test-app:8080")
                 }
                 .build()
     }
