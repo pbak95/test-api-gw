@@ -26,6 +26,12 @@ class RoutesConfig {
                             .filters { f: GatewayFilterSpec -> f.addRequestHeader("custom-header", "test-value") }
                             .uri("http://test-app:8080")
                 }
+                .route { p: PredicateSpec ->
+                    p
+                            .path("/v1/test/date-time")
+                            .filters { f: GatewayFilterSpec -> f.addRequestHeader("custom-header", "test-value") }
+                            .uri("http://test-app:8080")
+                }
                 .build()
     }
 }
